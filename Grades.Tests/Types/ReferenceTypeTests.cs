@@ -8,8 +8,43 @@ using System.Threading.Tasks;
 namespace Grades.Tests.Types
 {
     [TestClass]
+
     public class TypeTests
     {
+        [TestMethod]
+        public void UsingArrays()
+        {
+            float[] grades;
+            grades = new float[3];
+
+            AddGrades(grades);
+
+            Assert.AreEqual(89.1f, grades[1]);
+        }
+
+        private void AddGrades(float[] grades)
+        {
+            grades[1] = 89.1f;
+        }
+
+        [TestMethod]
+        public void UppercaseString()
+        {
+            string name = "sumit";
+            name = name.ToUpper();
+
+            Assert.AreEqual("SUMIT", name);
+        }
+
+        [TestMethod]
+        public void AddDaysToDateTime()
+        {
+            DateTime date = new DateTime(2015, 1, 1);
+            date = date.AddDays(1);
+
+            Assert.AreEqual(2, date.Day);
+        }
+
         [TestMethod]
         public void ValueTypePassByValue()
         {
@@ -32,13 +67,13 @@ namespace Grades.Tests.Types
 
             GiveBookAName(book2);
 
-            Assert.AreEqual("A GradeBook", book1.name);
+            Assert.AreEqual("A GradeBook", book1.Name);
 
         }
 
         private void GiveBookAName(GradeBook book)
         {
-            book.name = "A GradeBook";
+            book.Name = "A GradeBook";
 
         }
 
@@ -69,9 +104,9 @@ namespace Grades.Tests.Types
             GradeBook g2 = g1;
 
             g1 = new GradeBook();
-            g1.name = "Sumit's grade book";
+            g1.Name = "Sumit's grade book";
 
-            Assert.AreNotEqual(g1.name, g2.name);
+            Assert.AreNotEqual(g1.Name, g2.Name);
         }
     }
 }

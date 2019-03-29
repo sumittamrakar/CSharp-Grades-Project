@@ -35,6 +35,6 @@ namespace Grades
 
         private List<float> grades;
 
-        public string name;
+        public string Name;
     }
 }
